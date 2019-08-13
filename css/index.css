@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url(reset.css);
 #container {
   max-width: 980px;
@@ -27,6 +28,10 @@ body {
 @font-face {
   font-family: 'MaturaScriptCapitals';
   src: url("/fonts/MaturaMTScriptCapitals.ttf"); }
+
+@font-face {
+  font-family: 'TXT';
+  src: url("/fonts/腾讯体-TTTGB-Medium.ttf"); }
 
 @font-face {
   font-family: 'iconfont';
@@ -76,8 +81,8 @@ body {
     #nav > .header > .title {
       font-size: 45px;
       line-height: 53px;
-      color: #333;
-      font-family: MaturaScriptCapitals; }
+      color: #409EFF;
+      font-family: 腾讯体; }
       #nav > .header > .title:hover {
         opacity: .7; }
   #nav > .ctnWrap {
@@ -177,7 +182,7 @@ body {
       line-height: 40px; }
       .project-card > .ctnWrap > .title:hover {
         opacity: 1;
-        color: #f0534e; }
+        color: #409EFF; }
     .project-card > .ctnWrap > .desc {
       font-size: 16px;
       line-height: 30px;
