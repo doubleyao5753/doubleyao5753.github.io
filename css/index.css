@@ -233,10 +233,11 @@ body {
   padding: 80px 100px 0;
   background-color: white;
   color: #333;
-  font-size: 16px;
-  line-height: 30px; }
+  font-size: 14px;
+  line-height: 30px;
+  text-align: justify; }
   .article > .title {
-    font-size: 28px;
+    font-size: 30px;
     line-height: 40px;
     margin-bottom: 10px;
     font-weight: 600; }
@@ -245,35 +246,56 @@ body {
     margin-bottom: 20px; }
   .article > .content {
     padding-bottom: 64px; }
-    .article > .content h1, .article > .content h2, .article > .content h3, .article > .content h4, .article > .content h5 {
-      font-size: 24px;
+    .article > .content h1,
+    .article > .content h2,
+    .article > .content h3,
+    .article > .content h4,
+    .article > .content h5 {
       font-weight: 600;
       line-height: 40px;
       margin-bottom: 15px; }
+    .article > .content h1 {
+      font-size: 36px; }
+    .article > .content h2 {
+      font-size: 24px; }
+    .article > .content h3 {
+      font-size: 21px; }
+    .article > .content h4 {
+      font-size: 18px; }
+    .article > .content h5 {
+      font-size: 16px; }
     .article > .content p {
       font-size: 16px;
       line-height: 30px;
-      margin-bottom: 15px; }
-    .article > .content pre, .article > .content .highlight {
+      margin-bottom: 15px;
+      font-family: 'PingFang SC'; }
+    .article > .content pre,
+    .article > .content .highlight {
       overflow: auto;
       padding: 0;
       margin-bottom: 15px;
       color: #333;
       background: #f8f8f8; }
-      .article > .content pre .gutter, .article > .content .highlight .gutter {
+      .article > .content pre .gutter,
+      .article > .content .highlight .gutter {
         text-align: right; }
-        .article > .content pre .gutter pre, .article > .content .highlight .gutter pre {
+        .article > .content pre .gutter pre,
+        .article > .content .highlight .gutter pre {
           background-color: #f0f0f0;
           padding: 0 10px; }
-      .article > .content pre .code, .article > .content .highlight .code {
+      .article > .content pre .code,
+      .article > .content .highlight .code {
         padding: 0 10px; }
-    .article > .content ul, .article > .content ol {
+    .article > .content ul,
+    .article > .content ol {
       margin: 15px 0;
       margin-left: 15px; }
-      .article > .content ul > li, .article > .content ol > li {
+      .article > .content ul > li,
+      .article > .content ol > li {
         padding-left: 20px;
         position: relative; }
-        .article > .content ul > li::before, .article > .content ol > li::before {
+        .article > .content ul > li::before,
+        .article > .content ol > li::before {
           content: '';
           position: absolute;
           left: 0;
@@ -284,7 +306,8 @@ body {
           border-radius: 100%;
           background-color: #444; }
     .article > .content a {
-      color: #f0534e; }
+      color: #409EFF;
+      font-family: 'PingFang SC'; }
     .article > .content strong {
       font-weight: 600; }
     .article > .content figure > img {
