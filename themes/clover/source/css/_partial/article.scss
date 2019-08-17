@@ -13,7 +13,8 @@ $brand-color: #f0534e;
         font-size: 30px;
         line-height: 40px;
         margin-bottom: 10px;
-        font-weight: 600;
+        // font-weight: 700;
+        font-family: '腾讯体';
     }
 
     >.sub {
@@ -56,9 +57,9 @@ $brand-color: #f0534e;
         }
 
         p {
-            font-size: 16px;
+            font-size: 15px;
             line-height: 30px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             font-family: 'PingFang SC';
         }
 
@@ -110,8 +111,8 @@ $brand-color: #f0534e;
 
         a {
             color: #409EFF;
-            font-family: 'PingFang SC'
-
+            font-family: 'PingFang SC';
+            font-size: 15px;
         }
 
         strong {

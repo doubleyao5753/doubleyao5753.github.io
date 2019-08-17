@@ -7,11 +7,13 @@
         >.title {
             font-size: 45px;
             line-height: 53px;
-            color: #409EFF;
+            color: #252525;
             font-family: 腾讯体;
+            transition: all 0.2s;
 
             &:hover {
-                opacity: .7;
+                opacity: .9;
+                color: #ff2e63;
             }
         }
     }

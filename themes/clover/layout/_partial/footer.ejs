@@ -1,11 +1,20 @@
 <footer id="footer" class="f-cf">
-  <%= theme.mail %>
-  <% if (theme.social) { %>
+    <%= theme.mail %>
+    <% if (theme.social) { %>
     <% _.forEach(theme.social, function(value, key) { %>
-      <% if (value) { %>
-        · <a href="<%= url_for(value) %>" target="_blank" class="nav-icn"><%= key %></a>
-      <% } %>
+    <% if (value) { %>
+    · <a href="<%= url_for(value) %>" target="_blank" class="nav-icn"><%= key %></a>
+    <% } %>
     <% }); %>
-  <% } %>
-  <span class="copyright"><%= theme.copyright %></span>
+    <% } %>
+    <span class="copyright"><%= theme.copyright %></span>
+    <% if (config.highlightjs) { %>
+    <!-- Highlight.js -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js">
+    </script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+    <% } %>
 </footer>

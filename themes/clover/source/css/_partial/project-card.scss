@@ -2,22 +2,29 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 80px 100px;
+    padding: 70px 100px;
     margin: 40px 0;
     background-color: white;
     color: #333;
+    // transition: all 0.3s;
+
     // border-radius: 5px;
     // box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    // &:hover {
+    //     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    // }
 
     >.imgWrap {
         width: 320px;
         height: 240px;
         margin-right: 40px;
-        background-color: #f8f8f8;
+        // background-color: #f8f8f8;
 
         >img {
-            width: 100%;
-            height: 100%;
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
         }
     }
 
@@ -25,13 +32,15 @@
         flex: 1;
 
         >.title {
-            font-weight: 600;
+            // font-weight: 600;
             font-size: 28px;
             line-height: 40px;
+            font-family: 腾讯体;
+            transition: all 0.2s;
 
             &:hover {
                 opacity: 1;
-                color: #409EFF;
+                color: #6078ea;
             }
         }
 
@@ -40,6 +49,8 @@
             line-height: 30px;
             margin-top: 20px;
             margin-bottom: 15px;
+            text-align: justify;
+            font-family: PingFang SC;
         }
 
         >.sub {
