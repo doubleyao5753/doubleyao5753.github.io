@@ -81,10 +81,12 @@ body {
     #nav > .header > .title {
       font-size: 45px;
       line-height: 53px;
-      color: #409EFF;
-      font-family: 腾讯体; }
+      color: #252525;
+      font-family: 腾讯体;
+      transition: all 0.2s; }
       #nav > .header > .title:hover {
-        opacity: .7; }
+        opacity: .9;
+        color: #ff2e63; }
   #nav > .ctnWrap {
     display: flex;
     flex-wrap: wrap;
@@ -162,32 +164,36 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 80px 100px;
+  padding: 70px 100px;
   margin: 40px 0;
   background-color: white;
   color: #333; }
   .project-card > .imgWrap {
     width: 320px;
     height: 240px;
-    margin-right: 40px;
-    background-color: #f8f8f8; }
+    margin-right: 40px; }
     .project-card > .imgWrap > img {
-      width: 100%;
-      height: 100%; }
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%; }
   .project-card > .ctnWrap {
     flex: 1; }
     .project-card > .ctnWrap > .title {
-      font-weight: 600;
       font-size: 28px;
-      line-height: 40px; }
+      line-height: 40px;
+      font-family: 腾讯体;
+      transition: all 0.2s; }
       .project-card > .ctnWrap > .title:hover {
         opacity: 1;
-        color: #409EFF; }
+        color: #6078ea; }
     .project-card > .ctnWrap > .desc {
       font-size: 16px;
       line-height: 30px;
       margin-top: 20px;
-      margin-bottom: 15px; }
+      margin-bottom: 15px;
+      text-align: justify;
+      font-family: PingFang SC; }
     .project-card > .ctnWrap > .sub {
       font-size: 16px;
       line-height: 30px;
@@ -240,7 +246,7 @@ body {
     font-size: 30px;
     line-height: 40px;
     margin-bottom: 10px;
-    font-weight: 600; }
+    font-family: '腾讯体'; }
   .article > .sub {
     opacity: .5;
     margin-bottom: 20px; }
@@ -265,9 +271,9 @@ body {
     .article > .content h5 {
       font-size: 16px; }
     .article > .content p {
-      font-size: 16px;
+      font-size: 15px;
       line-height: 30px;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       font-family: 'PingFang SC'; }
     .article > .content pre,
     .article > .content .highlight {
@@ -307,7 +313,8 @@ body {
           background-color: #444; }
     .article > .content a {
       color: #409EFF;
-      font-family: 'PingFang SC'; }
+      font-family: 'PingFang SC';
+      font-size: 15px; }
     .article > .content strong {
       font-weight: 600; }
     .article > .content figure > img {
