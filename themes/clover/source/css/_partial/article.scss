@@ -63,28 +63,28 @@ $brand-color: #f0534e;
             font-family: 'PingFang SC';
         }
 
-        pre,
-        .highlight {
-            overflow: auto;
-            ;
-            padding: 0;
-            margin-bottom: 15px;
-            color: #333;
-            background: #f8f8f8;
+        // pre,
+        // .highlight {
+        //     overflow: auto;
+        //     ;
+        //     padding: 0;
+        //     margin-bottom: 15px;
+        //     color: #333;
+        //     background: #f8f8f8;
 
-            .gutter {
-                text-align: right;
+        //     .gutter {
+        //         text-align: right;
 
-                pre {
-                    background-color: #f0f0f0;
-                    padding: 0 10px;
-                }
-            }
+        //         pre {
+        //             background-color: #f0f0f0;
+        //             padding: 0 10px;
+        //         }
+        //     }
 
-            .code {
-                padding: 0 10px;
-            }
-        }
+        //     .code {
+        //         padding: 0 10px;
+        //     }
+        // }
 
         ul,
         ol {
