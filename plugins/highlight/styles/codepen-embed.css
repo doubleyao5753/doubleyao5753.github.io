@@ -1,6 +1,6 @@
 /*
   codepen.io Embed Theme
-  Author: Justin Perry <http: github.com ourmaninamsterdam>
+  Author: Justin Perry <http: github.com="" ourmaninamsterdam="">
   Original theme - https://github.com/chriskempson/tomorrow-theme
 */
 
@@ -58,4 +58,22 @@
 .hljs-strong {
   font-weight: bold;
 }
-</http:>
+</http:><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>

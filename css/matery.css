@@ -28,7 +28,7 @@
 }
 
 body {
-    background-color: #f6f6f6;
+    background-color: #0a0909;
     margin: 0;
     color: #1a1a1a;
 }
@@ -179,9 +179,9 @@ mark {
 .progress-bar {
     height: 4px;
     position: fixed;
-    bottom: 0;
-    z-index: 300;
-    background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    top: 0;
+    z-index: 3000;
+    background: #2d9;
     opacity: 0.8;
 }
 
@@ -1624,12 +1624,16 @@ thead {
 
 /*尾部样式*/
 footer {
+    margin-top: 50px;
+    font-size: 13px;
+    line-height: 30px;
     padding-bottom: 1px;
 }
 
 footer .social-statis {
     margin-top: 10px;
     position: relative;
+    text-align: right;
 }
 
 footer a {
@@ -1637,6 +1641,7 @@ footer a {
 }
 
 footer .copy-right {
+    text-align: left;
     color: #dbdbdb;
 }
 

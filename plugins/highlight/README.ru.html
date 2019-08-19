@@ -300,14 +300,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        475
+                        527
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        3 分
                     </div>
                     
                 
@@ -370,7 +370,25 @@ document<span class="token punctuation">.</span><span class="token function">que
 <h2 id="Ссылки"><a href="#Ссылки" class="headerlink" title="Ссылки"></a>Ссылки</h2><p>Официальный сайт билиотеки расположен по адресу <a href="https://highlightjs.org/" target="_blank" rel="noopener">https://highlightjs.org/</a>.</p>
 <p>Более подробная документация по API и другим темам расположена на<br><a href="http://highlightjs.readthedocs.io/" target="_blank" rel="noopener">http://highlightjs.readthedocs.io/</a>.</p>
 <p>Авторы и контрибьюторы перечислены в файле <a href="https://github.com/highlightjs/highlight.js/blob/master/AUTHORS.ru.txt" target="_blank" rel="noopener">AUTHORS.ru.txt</a> file.</p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -589,30 +607,28 @@ document<span class="token punctuation">.</span><span class="token function">que
 <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
-            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
-            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+            本站基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a>搭建.
 
             
-                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">1.3k</span>
+            &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+            <span class="white-color">1.9k</span>
             
 
             
-			
-                <br>
-                
-                <span id="busuanzi_container_site_pv">
-                    <i class="fa fa-heart-o"></i>
-                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
-                </span>
-                
-                
-                <span id="busuanzi_container_site_uv">
-                    <i class="fa fa-users"></i>
-                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
-                </span>
-                
+            
+            <br>
+            
+            <span id="busuanzi_container_site_pv">
+                <!-- <i class="fa fa-heart-o"></i> -->
+                本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人
+            </span>
+            
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
@@ -638,7 +654,6 @@ document<span class="token punctuation">.</span><span class="token function">que
 </footer>
 
 <div class="progress-bar"></div>
-
 
 <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">

@@ -56,7 +56,7 @@ ISBL Editor style dark color scheme (c) Dmitriy Tarasov <dimatar@gmail.com>
   color: #df471e;
 }
 
-.hljs-title>.hljs-built_in {
+.hljs-title&gt;.hljs-built_in {
   color: #81bce9;
   font-weight: normal;
 }
@@ -110,4 +110,22 @@ ISBL Editor style dark color scheme (c) Dmitriy Tarasov <dimatar@gmail.com>
 .hljs-strong {
   font-weight: bold;
 }
-</dimatar@gmail.com>
+</dimatar@gmail.com><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
