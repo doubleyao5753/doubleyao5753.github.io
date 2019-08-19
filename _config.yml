@@ -81,6 +81,25 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: hexo-theme-matery
 
+# emoji 表情支持
+# markdown emoji语法(::,例如：:smile:)
+githubEmojis:
+  enable: true
+  className: github-emoji
+  inject: true
+  styles:
+  customEmojis:
+
+# 全站搜索
+search:
+  path: search.xml
+  field: post
+
+# 中文链接转拼音 --> 利于SEO
+permalink_pinyin:
+  enable: true
+  separator: '-' # default: '-'
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
