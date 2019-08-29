@@ -19,6 +19,8 @@ ES6 是什么，就不赘述了。
 
 [最贴心的 ES6 环境搭建](https://www.cnblogs.com/zhouyangla/p/7076292.html)
 
+如果你想对比编译前和编译后的代码，建议在 [Babel 官方在线实时编译器](https://babeljs.io/repl/)中编写。
+
 #### ES6 语法：常用的就这么几个
 
 无论是 ES6 还是 English，学习任何一门语言，首要的在其语言的规则和规律 —— 语法。
@@ -129,7 +131,103 @@ mouse = {
 
 ##### 2. 箭头函数
 
+ES6中对于函数最常用的扩展 ——  箭头函数 ( => )
+
+```javascript
+let oneFunction = a => a   // ES6
+
+// 编译后
+var oneFunction = function oneFunction(a) {
+  return a;
+};  
+
+(a,b) => a + b  // ES6
+
+// 编译后
+(function (a, b) {
+  return a + b;
+});
+```
+
+箭头之前是函数的参数，如果函数没有参数，则用一个空的圆括号代替；如果有多个函数，则将各参数写在圆括号内用逗号分隔。
+
+```javascript
+let some = m => {
+    m *= 7
+    alert(m)
+    return m + 5
+}
+console.log(some(5)) // 弹框35，打印40
+```
+
+箭头之后是函数的执行体，若省略大括号，则直接返回所写语句；若执行语句多于一条，则需要使用大括号将其括起来，括号中若有返回值则需要使用return关键字；若箭头函数直接返回一个对象，使得对象括号与函数括号冲突，则必须在对象外面加上圆括号。
+
+**注意事项：**
+
+1. **函数体内的this对象指向定义时所在的对象，而不是调用时所在的对象。**
+2. 箭头函数正因为没有自己的this，所以不可当做构造函数，不能使用new命令
+3. 没有arguments对象，如果要用则使用`剩余运算符`代替
+
+箭头函数不仅仅只是为了简化代码而生。在ES5中，对于this的指向，我们刻骨铭心：**this永远永远指向最后调用它的那个对象。**由此也带来许多不便，箭头函数便是对症下的药。
+
+> 引用警句：箭头函数中没有 this 绑定，必须通过查找作用域链来决定其值，如果箭头函数被非箭头函数包含，则 this 绑定的是最近一层非箭头函数的 this，否则，this 报错为 undefined
+
+```javascript
+let name = 'LiNa'
+
+let f1 = function () {
+    console.log(name)
+}
+
+let a = {
+    name: 'WangEr',
+    f1: function () {
+        console.log(this.name)
+    },
+    f2: function () {
+        setTimeout(() => {
+            this.f1()
+        }, 1000)
+    }
+}
+
+a.f1() 	// WangEr
+a.f2() 	// WangEr
+f1()  	// LiNa
+// 先后打印 --> WangEr LiNa WangEr
+```
+
+`a.f1() `： 对于对象中普通的方法函数，this 指向方法所在的对象
+
+`a.f2()`： 对于方法函数中定时器中的回调箭头函数，定时器中的回调函数属于全局异步函数，this指向Window，这里本应该打印`LiNa`；但是在这里使用了箭头函数后，this 指向最近一层非箭头函数的 this，因此打印`WangEr`
+
+**建议：不要把一个对象的方法函数用作箭头函数！**
+
+```javascript
+let p = {
+    n: '5753',
+    arrow: () => {
+        setTimeout(() => {
+            console.log(this.n)
+        }, 10)
+    },
+    common: function () {
+        setTimeout(() => {
+            console.log(this.n)
+        }, 10)
+    }
+}
+p.arrow()   // 报错Cannot read property 'n' of undefined
+p.common()  // 5753
+```
+
+一旦方法函数使用了箭头函数，那么这个方法中的所有this都不再指向当前对象，而是往上走，这里指向了Window。
+
+
+
 ##### 3. 模板字符串
+
+
 
 ##### 4. 解构赋值
 
