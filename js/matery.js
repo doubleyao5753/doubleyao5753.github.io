@@ -120,7 +120,9 @@ $(function () {
 
     /*回到顶部*/
     $('#backTop').click(function () {
-        $('body,html').animate({scrollTop: 0}, 400);
+        $('body,html').animate({
+            scrollTop: 0
+        }, 400);
         return false;
     });
 
@@ -130,7 +132,7 @@ $(function () {
     $(window).scroll(function () {
         /* 回到顶部按钮根据滚动条的位置的显示和隐藏.*/
         let scroll = $(window).scrollTop();
-        if (scroll < 100) {
+        if (scroll < 1000) {
             $nav.addClass('nav-transparent');
             $backTop.slideUp(300);
         } else {
