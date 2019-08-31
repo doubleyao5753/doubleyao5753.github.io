@@ -1,12 +1,12 @@
 ---
 title: 总结ES6常用语法
 date: 2019-08-18 00:41:14
-excerpt: ES6中常用的API
-photos:
-  [
-    https://hbimg.huabanimg.com/d8d5d418b8e69873901fe5fe6bde5adb0bbbdcc73e298d-J1sCyu_fw658,
-  ]
-tags: ES6 JavaScript
+author: 姚尧
+# excerpt: ES6中常用的API
+summary: 好钢用在刀刃上，快速了解并上手ES6最常用最顺手的语法。
+tags:
+  - ES6
+  - JavaScript
 ---
 
 ES6 是什么，就不赘述了。
@@ -131,103 +131,103 @@ mouse = {
 
 ##### 2. 箭头函数
 
-ES6中对于函数最常用的扩展 ——  箭头函数 ( => )
+ES6 中对于函数最常用的扩展 —— 箭头函数 ( => )
 
 ```javascript
-let oneFunction = a => a   // ES6
+let oneFunction = a => a // ES6
 
 // 编译后
 var oneFunction = function oneFunction(a) {
-  return a;
-};  
+  return a
+}
 
-(a,b) => a + b  // ES6
+;(a, b) =>
+  a +
+  b(
+    // ES6
 
-// 编译后
-(function (a, b) {
-  return a + b;
-});
+    // 编译后
+    function(a, b) {
+      return a + b
+    }
+  )
 ```
 
 箭头之前是函数的参数，如果函数没有参数，则用一个空的圆括号代替；如果有多个函数，则将各参数写在圆括号内用逗号分隔。
 
 ```javascript
 let some = m => {
-    m *= 7
-    alert(m)
-    return m + 5
+  m *= 7
+  alert(m)
+  return m + 5
 }
 console.log(some(5)) // 弹框35，打印40
 ```
 
-箭头之后是函数的执行体，若省略大括号，则直接返回所写语句；若执行语句多于一条，则需要使用大括号将其括起来，括号中若有返回值则需要使用return关键字；若箭头函数直接返回一个对象，使得对象括号与函数括号冲突，则必须在对象外面加上圆括号。
+箭头之后是函数的执行体，若省略大括号，则直接返回所写语句；若执行语句多于一条，则需要使用大括号将其括起来，括号中若有返回值则需要使用 return 关键字；若箭头函数直接返回一个对象，使得对象括号与函数括号冲突，则必须在对象外面加上圆括号。
 
 **注意事项：**
 
-1. **函数体内的this对象指向定义时所在的对象，而不是调用时所在的对象。**
-2. 箭头函数正因为没有自己的this，所以不可当做构造函数，不能使用new命令
-3. 没有arguments对象，如果要用则使用`剩余运算符`代替
+1. **函数体内的 this 对象指向定义时所在的对象，而不是调用时所在的对象。**
+2. 箭头函数正因为没有自己的 this，所以不可当做构造函数，不能使用 new 命令
+3. 没有 arguments 对象，如果要用则使用`剩余运算符`代替
 
-箭头函数不仅仅只是为了简化代码而生。在ES5中，对于this的指向，我们刻骨铭心：**this永远永远指向最后调用它的那个对象。**由此也带来许多不便，箭头函数便是对症下的药。
+箭头函数不仅仅只是为了简化代码而生。在 ES5 中，对于 this 的指向，我们刻骨铭心：**this 永远永远指向最后调用它的那个对象。**由此也带来许多不便，箭头函数便是对症下的药。
 
 > 引用警句：箭头函数中没有 this 绑定，必须通过查找作用域链来决定其值，如果箭头函数被非箭头函数包含，则 this 绑定的是最近一层非箭头函数的 this，否则，this 报错为 undefined
 
 ```javascript
 let name = 'LiNa'
 
-let f1 = function () {
-    console.log(name)
+let f1 = function() {
+  console.log(name)
 }
 
 let a = {
-    name: 'WangEr',
-    f1: function () {
-        console.log(this.name)
-    },
-    f2: function () {
-        setTimeout(() => {
-            this.f1()
-        }, 1000)
-    }
+  name: 'WangEr',
+  f1: function() {
+    console.log(this.name)
+  },
+  f2: function() {
+    setTimeout(() => {
+      this.f1()
+    }, 1000)
+  }
 }
 
-a.f1() 	// WangEr
-a.f2() 	// WangEr
-f1()  	// LiNa
+a.f1() // WangEr
+a.f2() // WangEr
+f1() // LiNa
 // 先后打印 --> WangEr LiNa WangEr
 ```
 
-`a.f1() `： 对于对象中普通的方法函数，this 指向方法所在的对象
+`a.f1()`： 对于对象中普通的方法函数，this 指向方法所在的对象
 
-`a.f2()`： 对于方法函数中定时器中的回调箭头函数，定时器中的回调函数属于全局异步函数，this指向Window，这里本应该打印`LiNa`；但是在这里使用了箭头函数后，this 指向最近一层非箭头函数的 this，因此打印`WangEr`
+`a.f2()`： 对于方法函数中定时器中的回调箭头函数，定时器中的回调函数属于全局异步函数，this 指向 Window，这里本应该打印`LiNa`；但是在这里使用了箭头函数后，this 指向最近一层非箭头函数的 this，因此打印`WangEr`
 
 **建议：不要把一个对象的方法函数用作箭头函数！**
 
 ```javascript
 let p = {
-    n: '5753',
-    arrow: () => {
-        setTimeout(() => {
-            console.log(this.n)
-        }, 10)
-    },
-    common: function () {
-        setTimeout(() => {
-            console.log(this.n)
-        }, 10)
-    }
+  n: '5753',
+  arrow: () => {
+    setTimeout(() => {
+      console.log(this.n)
+    }, 10)
+  },
+  common: function() {
+    setTimeout(() => {
+      console.log(this.n)
+    }, 10)
+  }
 }
-p.arrow()   // 报错Cannot read property 'n' of undefined
-p.common()  // 5753
+p.arrow() // 报错Cannot read property 'n' of undefined
+p.common() // 5753
 ```
 
-一旦方法函数使用了箭头函数，那么这个方法中的所有this都不再指向当前对象，而是往上走，这里指向了Window。
-
-
+一旦方法函数使用了箭头函数，那么这个方法中的所有 this 都不再指向当前对象，而是往上走，这里指向了 Window。
 
 ##### 3. 模板字符串
-
-
 
 ##### 4. 解构赋值
 
