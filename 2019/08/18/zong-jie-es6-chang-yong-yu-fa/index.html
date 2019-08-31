@@ -14,8 +14,8 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>总结ES6常用语法 | DoubleYao</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <title>总结ES6常用语法 | null</title>
+    <link rel="icon" type="image/png" href="/home.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -42,7 +42,7 @@
                     
                     <img src="/medias/logoyao.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">DoubleYao</span>
+                    <span class="logo-span"></span>
                 </a>
             </div>
             
@@ -98,7 +98,7 @@
         
         <img src="/medias/logoyao.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">DoubleYao</div>
+        <div class="logo-name"></div>
         <div class="logo-desc">
             
             Never too late to be a betterman.
@@ -170,7 +170,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -287,8 +287,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/ES6-JavaScript/" target="_blank">
-                                <span class="chip bg-color">ES6 JavaScript</span>
+                            <a href="/tags/ES6/" target="_blank">
+                                <span class="chip bg-color">ES6</span>
+                            </a>
+                        
+                            <a href="/tags/JavaScript/" target="_blank">
+                                <span class="chip bg-color">JavaScript</span>
                             </a>
                         
                     </div>
@@ -427,79 +431,83 @@ mouse <span class="token operator">=</span> <span class="token punctuation">{</s
 <li>const 定义只读常量，禁止被重新赋值</li>
 <li>const 声明的是一个引用类型时，不能改变它指向的内存地址</li>
 </ul>
-<h5 id="2-箭头函数"><a href="#2-箭头函数" class="headerlink" title="2. 箭头函数"></a>2. 箭头函数</h5><p>ES6中对于函数最常用的扩展 ——  箭头函数 ( =&gt; )</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> oneFunction <span class="token operator">=</span> a <span class="token operator">=</span><span class="token operator">></span> a   <span class="token comment" spellcheck="true">// ES6</span>
+<h5 id="2-箭头函数"><a href="#2-箭头函数" class="headerlink" title="2. 箭头函数"></a>2. 箭头函数</h5><p>ES6 中对于函数最常用的扩展 —— 箭头函数 ( =&gt; )</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> oneFunction <span class="token operator">=</span> a <span class="token operator">=</span><span class="token operator">></span> a <span class="token comment" spellcheck="true">// ES6</span>
 
 <span class="token comment" spellcheck="true">// 编译后</span>
 <span class="token keyword">var</span> oneFunction <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token function">oneFunction</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> a<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>  
+  <span class="token keyword">return</span> a
+<span class="token punctuation">}</span>
 
-<span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> a <span class="token operator">+</span> b  <span class="token comment" spellcheck="true">// ES6</span>
+<span class="token punctuation">;</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span>
+  a <span class="token operator">+</span>
+  <span class="token function">b</span><span class="token punctuation">(</span>
+    <span class="token comment" spellcheck="true">// ES6</span>
 
-<span class="token comment" spellcheck="true">// 编译后</span>
-<span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+    <span class="token comment" spellcheck="true">// 编译后</span>
+    <span class="token keyword">function</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> a <span class="token operator">+</span> b
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">)</span></code></pre>
 <p>箭头之前是函数的参数，如果函数没有参数，则用一个空的圆括号代替；如果有多个函数，则将各参数写在圆括号内用逗号分隔。</p>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> some <span class="token operator">=</span> m <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    m <span class="token operator">*</span><span class="token operator">=</span> <span class="token number">7</span>
-    <span class="token function">alert</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> m <span class="token operator">+</span> <span class="token number">5</span>
+  m <span class="token operator">*</span><span class="token operator">=</span> <span class="token number">7</span>
+  <span class="token function">alert</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> m <span class="token operator">+</span> <span class="token number">5</span>
 <span class="token punctuation">}</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 弹框35，打印40</span></code></pre>
-<p>箭头之后是函数的执行体，若省略大括号，则直接返回所写语句；若执行语句多于一条，则需要使用大括号将其括起来，括号中若有返回值则需要使用return关键字；若箭头函数直接返回一个对象，使得对象括号与函数括号冲突，则必须在对象外面加上圆括号。</p>
+<p>箭头之后是函数的执行体，若省略大括号，则直接返回所写语句；若执行语句多于一条，则需要使用大括号将其括起来，括号中若有返回值则需要使用 return 关键字；若箭头函数直接返回一个对象，使得对象括号与函数括号冲突，则必须在对象外面加上圆括号。</p>
 <p><strong>注意事项：</strong></p>
 <ol>
-<li><strong>函数体内的this对象指向定义时所在的对象，而不是调用时所在的对象。</strong></li>
-<li>箭头函数正因为没有自己的this，所以不可当做构造函数，不能使用new命令</li>
-<li>没有arguments对象，如果要用则使用<code>剩余运算符</code>代替</li>
+<li><strong>函数体内的 this 对象指向定义时所在的对象，而不是调用时所在的对象。</strong></li>
+<li>箭头函数正因为没有自己的 this，所以不可当做构造函数，不能使用 new 命令</li>
+<li>没有 arguments 对象，如果要用则使用<code>剩余运算符</code>代替</li>
 </ol>
-<p>箭头函数不仅仅只是为了简化代码而生。在ES5中，对于this的指向，我们刻骨铭心：<strong>this永远永远指向最后调用它的那个对象。</strong>由此也带来许多不便，箭头函数便是对症下的药。</p>
+<p>箭头函数不仅仅只是为了简化代码而生。在 ES5 中，对于 this 的指向，我们刻骨铭心：<strong>this 永远永远指向最后调用它的那个对象。</strong>由此也带来许多不便，箭头函数便是对症下的药。</p>
 <blockquote>
 <p>引用警句：箭头函数中没有 this 绑定，必须通过查找作用域链来决定其值，如果箭头函数被非箭头函数包含，则 this 绑定的是最近一层非箭头函数的 this，否则，this 报错为 undefined</p>
 </blockquote>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">'LiNa'</span>
 
-<span class="token keyword">let</span> f1 <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+<span class="token keyword">let</span> f1 <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 
 <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">{</span>
-    name<span class="token punctuation">:</span> <span class="token string">'WangEr'</span><span class="token punctuation">,</span>
-    f1<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    f2<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">f1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
+  name<span class="token punctuation">:</span> <span class="token string">'WangEr'</span><span class="token punctuation">,</span>
+  f1<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  f2<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">f1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
-a<span class="token punctuation">.</span><span class="token function">f1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>     <span class="token comment" spellcheck="true">// WangEr</span>
-a<span class="token punctuation">.</span><span class="token function">f2</span><span class="token punctuation">(</span><span class="token punctuation">)</span>     <span class="token comment" spellcheck="true">// WangEr</span>
-<span class="token function">f1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>      <span class="token comment" spellcheck="true">// LiNa</span>
+a<span class="token punctuation">.</span><span class="token function">f1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// WangEr</span>
+a<span class="token punctuation">.</span><span class="token function">f2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// WangEr</span>
+<span class="token function">f1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// LiNa</span>
 <span class="token comment" spellcheck="true">// 先后打印 --> WangEr LiNa WangEr</span></code></pre>
 <p><code>a.f1()</code>： 对于对象中普通的方法函数，this 指向方法所在的对象</p>
-<p><code>a.f2()</code>： 对于方法函数中定时器中的回调箭头函数，定时器中的回调函数属于全局异步函数，this指向Window，这里本应该打印<code>LiNa</code>；但是在这里使用了箭头函数后，this 指向最近一层非箭头函数的 this，因此打印<code>WangEr</code></p>
+<p><code>a.f2()</code>： 对于方法函数中定时器中的回调箭头函数，定时器中的回调函数属于全局异步函数，this 指向 Window，这里本应该打印<code>LiNa</code>；但是在这里使用了箭头函数后，this 指向最近一层非箭头函数的 this，因此打印<code>WangEr</code></p>
 <p><strong>建议：不要把一个对象的方法函数用作箭头函数！</strong></p>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> p <span class="token operator">=</span> <span class="token punctuation">{</span>
-    n<span class="token punctuation">:</span> <span class="token string">'5753'</span><span class="token punctuation">,</span>
-    arrow<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>n<span class="token punctuation">)</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    common<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>n<span class="token punctuation">)</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
+  n<span class="token punctuation">:</span> <span class="token string">'5753'</span><span class="token punctuation">,</span>
+  arrow<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>n<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  common<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>n<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-p<span class="token punctuation">.</span><span class="token function">arrow</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">// 报错Cannot read property 'n' of undefined</span>
-p<span class="token punctuation">.</span><span class="token function">common</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// 5753</span></code></pre>
-<p>一旦方法函数使用了箭头函数，那么这个方法中的所有this都不再指向当前对象，而是往上走，这里指向了Window。</p>
+p<span class="token punctuation">.</span><span class="token function">arrow</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 报错Cannot read property 'n' of undefined</span>
+p<span class="token punctuation">.</span><span class="token function">common</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 5753</span></code></pre>
+<p>一旦方法函数使用了箭头函数，那么这个方法中的所有 this 都不再指向当前对象，而是往上走，这里指向了 Window。</p>
 <h5 id="3-模板字符串"><a href="#3-模板字符串" class="headerlink" title="3. 模板字符串"></a>3. 模板字符串</h5><h5 id="4-解构赋值"><a href="#4-解构赋值" class="headerlink" title="4. 解构赋值"></a>4. 解构赋值</h5><h5 id="5-剩余-扩展运算符"><a href="#5-剩余-扩展运算符" class="headerlink" title="5. 剩余/ 扩展运算符"></a>5. 剩余/ 扩展运算符</h5><h5 id="6-简写对象属性-方法"><a href="#6-简写对象属性-方法" class="headerlink" title="6. 简写对象属性/方法"></a>6. 简写对象属性/方法</h5><h5 id="7-Promise"><a href="#7-Promise" class="headerlink" title="7. Promise"></a>7. Promise</h5><h5 id="8-Module"><a href="#8-Module" class="headerlink" title="8. Module"></a>8. Module</h5><p><a href="https://juejin.im/post/5c6234f16fb9a049a81fcca5" target="_blank" rel="noopener">掘金一万字的 ES6 语法</a></p>
 <p><a href="https://juejin.im/post/5a08e5c55188252abc5dd96f#heading-8" target="_blank" rel="noopener">掘金 ES6 常用 API</a></p>
 <p><a href="https://segmentfault.com/a/1190000014824675#articleHeader7" target="_blank" rel="noopener">思否常用语法</a></p>
@@ -568,7 +576,7 @@ p<span class="token punctuation">.</span><span class="token function">common</sp
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="总结ES6常用语法">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="总结ES6常用语法">
                         
                         <span class="card-title">总结ES6常用语法</span>
                     </div>
@@ -576,8 +584,7 @@ p<span class="token punctuation">.</span><span class="token function">common</sp
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ES6 是什么，就不赘述了。
-如果你也跟当下的我一样，有一些 JavaScript 基础，想在工作中提高开发的效率和优化简化代码，但暂时又没有充分的时间系统的学习 ES6，那么此文就很适合你啦。或许大家都知道，只要基础够扎实，跟着阮一峰大佬
+                            好钢用在刀刃上，快速了解并上手ES6最常用最顺手的语法。
                         
                     </div>
                     <div class="publish-info">
@@ -587,7 +594,7 @@ p<span class="token punctuation">.</span><span class="token function">common</sp
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
-                            Double Yao
+                            姚尧
                             
                         </span>
                     </div>
@@ -596,8 +603,12 @@ p<span class="token punctuation">.</span><span class="token function">common</sp
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ES6-JavaScript/" target="_blank">
-                        <span class="chip bg-color">ES6 JavaScript</span>
+                    <a href="/tags/ES6/" target="_blank">
+                        <span class="chip bg-color">ES6</span>
+                    </a>
+                    
+                    <a href="/tags/JavaScript/" target="_blank">
+                        <span class="chip bg-color">JavaScript</span>
                     </a>
                     
                 </div>
@@ -615,7 +626,7 @@ p<span class="token punctuation">.</span><span class="token function">common</sp
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Get Start My Hexo Blogs Way">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Get Start My Hexo Blogs Way">
                         
                         <span class="card-title">Get Start My Hexo Blogs Way</span>
                     </div>
@@ -644,8 +655,16 @@ p<span class="token punctuation">.</span><span class="token function">common</sp
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/随笔-Hexo/" target="_blank">
-                        <span class="chip bg-color">随笔 Hexo</span>
+                    <a href="/tags/随笔/" target="_blank">
+                        <span class="chip bg-color">随笔</span>
+                    </a>
+                    
+                    <a href="/tags/Hexo/" target="_blank">
+                        <span class="chip bg-color">Hexo</span>
+                    </a>
+                    
+                    <a href="/tags/里程碑/" target="_blank">
+                        <span class="chip bg-color">里程碑</span>
                     </a>
                     
                 </div>
@@ -685,7 +704,7 @@ p<span class="token punctuation">.</span><span class="token function">common</sp
 
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
-            + '来源: DoubleYao<br />'
+            + '来源: <br />'
             + '作者: Double Yao<br />'
             + '链接: <a href="' + url + '">' + url + '</a><br />'
             + '本文章著作权归作者所有，任何形式的转载都请注明出处。';

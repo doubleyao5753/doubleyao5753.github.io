@@ -2,3 +2,26 @@
 body {
     font-family: "PingFang SC", system-ui, "Helvetica Neue", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei", sans-serif;
 }
+
+/* 1rem = 15px */
+
+/* index custom css styles */
+article .card {
+    border-radius: 0;
+}
+
+article .card .card-content {
+    font-size: 0.86rem;
+
+}
+
+article .card .card-content .summary {
+    height: 8rem;
+    text-align: justify;
+    line-height: 22px;
+    /* overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; */
+}
+
+article .card .card-content .publish-info {}
