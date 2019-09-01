@@ -1,7 +1,7 @@
 ---
 title: Get Start My Hexo Blogs Way
 date: 2019-08-14 23:43:45
-excerpt: 第一篇写在自己站点的博客，具有划时代意义。基于Hexo博客框架与简洁的Clover主题，托管在交友平台GitHub上。
+summary: 起步，我的人生作品。
 photos: [https://i.loli.net/2019/08/18/wuaTin5ZbDSQjHE.gif]
 tags:
   - 随笔
