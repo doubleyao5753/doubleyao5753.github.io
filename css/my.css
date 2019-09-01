@@ -5,7 +5,7 @@ body {
 
 /* 1rem = 15px */
 
-/* index custom css styles */
+/* 首页自定义样式 */
 article .card {
     border-radius: 0;
 }
@@ -25,3 +25,20 @@ article .card .card-content .summary {
 }
 
 article .card .card-content .publish-info {}
+
+/* 文章页自定义样式 */
+#artDetail p,
+#artDetail ul li,
+#artDetail ol li {
+    font-size: 0.93rem;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+#artDetail .post-info {
+    font-size: 0.93rem;
+}
+
+#artDetail .post-info div {
+    margin-right: 30px;
+}
