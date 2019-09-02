@@ -313,14 +313,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2.2k
+                        2.7k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        8 分
+                        10 分
                     </div>
                     
                 
@@ -465,7 +465,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </ol>
 <p>箭头函数不仅仅只是为了简化代码而生。在 ES5 中，对于 this 的指向，我们刻骨铭心：<strong>this 永远永远指向最后调用它的那个对象。</strong>由此也带来许多不便，箭头函数便是对症下的药。</p>
 <blockquote>
-<p>引用警句：箭头函数中没有 this 绑定，必须通过查找作用域链来决定其值，如果箭头函数被非箭头函数包含，则 this 绑定的是最近一层非箭头函数的 this，否则，this 报错为 undefined</p>
+<p>引用警句：箭头函数中没有 this 绑定，必须通过查找作用域链来决定其值，如果箭头函数被非箭头函数包含，则 this 绑定的是最近一层<strong>非箭头函数的 this</strong>，否则，this 报错为 undefined</p>
 </blockquote>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">'LiNa'</span>
 
@@ -508,7 +508,38 @@ a<span class="token punctuation">.</span><span class="token function">f2</span><
 p<span class="token punctuation">.</span><span class="token function">arrow</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 报错Cannot read property 'n' of undefined</span>
 p<span class="token punctuation">.</span><span class="token function">common</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 5753</span></code></pre>
 <p>一旦方法函数使用了箭头函数，那么这个方法中的所有 this 都不再指向当前对象，而是往上走，这里指向了 Window。</p>
-<h5 id="3-模板字符串"><a href="#3-模板字符串" class="headerlink" title="3. 模板字符串"></a>3. 模板字符串</h5><h5 id="4-解构赋值"><a href="#4-解构赋值" class="headerlink" title="4. 解构赋值"></a>4. 解构赋值</h5><h5 id="5-剩余-扩展运算符"><a href="#5-剩余-扩展运算符" class="headerlink" title="5. 剩余/ 扩展运算符"></a>5. 剩余/ 扩展运算符</h5><h5 id="6-简写对象属性-方法"><a href="#6-简写对象属性-方法" class="headerlink" title="6. 简写对象属性/方法"></a>6. 简写对象属性/方法</h5><h5 id="7-Promise"><a href="#7-Promise" class="headerlink" title="7. Promise"></a>7. Promise</h5><h5 id="8-Module"><a href="#8-Module" class="headerlink" title="8. Module"></a>8. Module</h5><p><a href="https://juejin.im/post/5c6234f16fb9a049a81fcca5" target="_blank" rel="noopener">掘金一万字的 ES6 语法</a></p>
+<h5 id="3-模板字符串"><a href="#3-模板字符串" class="headerlink" title="3. 模板字符串"></a>3. 模板字符串</h5><p>模板字符串极大的简化了传统的字符串拼接。使用起来非常简单，核心就是一个反引号   <strong>`</strong>  （英文输入法下键盘左上角数字 1 左边），以及组合符号 <strong>${  }</strong> （美元和花括号）。</p>
+<p>（1） 简化</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> father <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'demo'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'KeyNG'</span><span class="token punctuation">,</span>
+    age<span class="token punctuation">:</span> <span class="token number">27</span><span class="token punctuation">,</span>
+    sing<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">'Hip-Hop'</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//  ES5 字符串拼接</span>
+father<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'大家好，我的名字是'</span> <span class="token operator">+</span> obj<span class="token punctuation">.</span>name <span class="token operator">+</span> <span class="token string">',年龄'</span> <span class="token operator">+</span> obj<span class="token punctuation">.</span>age <span class="token operator">+</span> <span class="token string">'岁'</span> <span class="token operator">+</span> <span class="token string">',我会唱'</span> <span class="token operator">+</span> obj<span class="token punctuation">.</span><span class="token function">sing</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// ES6 模板字符串</span>
+father<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`大家好，我的名字是</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>obj<span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">,年龄</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>obj<span class="token punctuation">.</span>age<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">岁，我会唱</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>obj<span class="token punctuation">.</span><span class="token function">sing</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span></code></pre>
+<p>在一串字符串中有变量或者函数的情况下，传统的写法是使用符号<code>+</code>其拆分和拼接，无数的单引号使人抓狂。</p>
+<p>而在ES6中，使用模板字符串，无论是普通字符串还是变量和函数，统统包裹在两个反引号中，其中再将变量和函数用<code>${ }</code>包裹一下即可，极大的简化代码，结构也一目了然，需要拼接的越多，其优势越明显。</p>
+<p><strong>模板字符串的大括号内部，就是执行JavaScript代码</strong>，因此可以放入任意的JavaScript表达式，例如进行一些简单的运算、调用函数、引用对象属性方法等等。</p>
+<p>（2） 无需对换行和空格进行转义</p>
+<pre class=" language-javascript"><code class="language-javascript">father<span class="token punctuation">.</span>innerHTML <span class="token operator">+</span><span class="token operator">=</span> <span class="token string">'&lt;p>&lt;h2>你好，我叫'</span> <span class="token operator">+</span> obj<span class="token punctuation">.</span>name <span class="token operator">+</span> <span class="token string">'&lt;/h2>&lt;span>只会唱唱'</span> <span class="token operator">+</span> obj<span class="token punctuation">.</span><span class="token function">sing</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'&lt;/span>&lt;/p>'</span>
+
+father<span class="token punctuation">.</span>innerHTML <span class="token operator">+</span><span class="token operator">=</span>
+<span class="token template-string"><span class="token string">`
+    &lt;p>
+        &lt;h2>你好，我叫</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>obj<span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&lt;/h2>
+        &lt;span>只会唱唱</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>obj<span class="token punctuation">.</span><span class="token function">sing</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&lt;/span>
+    &lt;/p>
+`</span></span>
+</code></pre>
+<p>使用模板字符串表示多行字符串，所有的空格和缩进都会被保留在输出之中。</p>
+<h5 id="4-解构赋值"><a href="#4-解构赋值" class="headerlink" title="4. 解构赋值"></a>4. 解构赋值</h5><h5 id="5-默认参数和剩余运算符"><a href="#5-默认参数和剩余运算符" class="headerlink" title="5. 默认参数和剩余运算符"></a>5. 默认参数和剩余运算符</h5><h5 id="6-简写对象属性-方法"><a href="#6-简写对象属性-方法" class="headerlink" title="6. 简写对象属性/方法"></a>6. 简写对象属性/方法</h5><h5 id="7-Promise"><a href="#7-Promise" class="headerlink" title="7. Promise"></a>7. Promise</h5><h5 id="8-Module"><a href="#8-Module" class="headerlink" title="8. Module"></a>8. Module</h5><p><a href="https://juejin.im/post/5c6234f16fb9a049a81fcca5" target="_blank" rel="noopener">掘金一万字的 ES6 语法</a></p>
 <p><a href="https://juejin.im/post/5a08e5c55188252abc5dd96f#heading-8" target="_blank" rel="noopener">掘金 ES6 常用 API</a></p>
 <p><a href="https://segmentfault.com/a/1190000014824675#articleHeader7" target="_blank" rel="noopener">思否常用语法</a></p>
 <p><a href="https://juejin.im/entry/58f21df95c497d006c87469e" target="_blank" rel="noopener">掘金 30 分钟搞定 ES6</a></p>
@@ -656,12 +687,12 @@ p<span class="token punctuation">.</span><span class="token function">common</sp
                         <span class="chip bg-color">随笔</span>
                     </a>
                     
-                    <a href="/tags/里程碑/" target="_blank">
-                        <span class="chip bg-color">里程碑</span>
-                    </a>
-                    
                     <a href="/tags/Hexo/" target="_blank">
                         <span class="chip bg-color">Hexo</span>
+                    </a>
+                    
+                    <a href="/tags/里程碑/" target="_blank">
+                        <span class="chip bg-color">里程碑</span>
                     </a>
                     
                 </div>
@@ -813,13 +844,15 @@ p<span class="token punctuation">.</span><span class="token function">common</sp
 <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
+
             本站基于
-            <a href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md"
-                target="_blank">Hexo</a>搭建.
+            <a href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md" target="_blank"> Hexo
+            </a>搭建.
 
             
-            &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">3.6k</span>
+            &nbsp;<a href="https://blinkfox.github.io/" target="_blank"><i
+                    class="fa fa-area-chart"></i></a>&nbsp;站点总字数:&nbsp;
+            <span class="white-color">4k</span>
             
 
             
