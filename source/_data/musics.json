@@ -1,6 +1,11 @@
 [{
     "name": "吹又生",
     "artist": "杨和苏",
-    "url": "http://m10.music.126.net/20190902233756/22852910f759e891f46e653e15a8ba67/ymusic/070c/5453/035c/0f3a02789dc959cdd19d46d8e7d41344.mp3",
+    "url": "http://m10.music.126.net/20190903151246/33891d61cfa76c1d0b67e232a2725edf/ymusic/070c/5453/035c/0f3a02789dc959cdd19d46d8e7d41344.mp3",
+    "cover": "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3687707369,4128223769&fm=26&gp=0.jpg"
+}, {
+    "name": "兔八哥",
+    "artist": "杨和苏",
+    "url": "http://m10.music.126.net/20190903151523/70971080c32f53d4858ee3c03a1806d6/ymusic/0f0e/540f/555a/8d7a9178bfcefbc4627fb09f2e44a5f2.mp3",
     "cover": "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3687707369,4128223769&fm=26&gp=0.jpg"
 }]

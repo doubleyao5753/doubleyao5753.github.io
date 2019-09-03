@@ -256,34 +256,236 @@ father.append(`大家好，我的名字是${obj.name},年龄${obj.age}岁，我�
 
 **模板字符串的大括号内部，就是执行JavaScript代码**，因此可以放入任意的JavaScript表达式，例如进行一些简单的运算、调用函数、引用对象属性方法等等。
 
-（2） 无需对换行和空格进行转义
+（2） 无需对特殊字符进行转义
 
 ```javascript
-father.innerHTML += '<p><h2>你好，我叫' + obj.name + '</h2><span>只会唱唱' + obj.sing() + '</span></p>'
+father.innerHTML += '<p><h2>你好，我叫\n\"' + obj.name + '\"\n</h2><span>只会唱唱' + obj.sing() + '</span></p>'
 
 father.innerHTML +=
 `
     <p>
-    	<h2>你好，我叫${obj.name}</h2>
+    	<h2>你好，我叫 "${obj.name}" </h2>
     	<span>只会唱唱${obj.sing()}</span>
     </p>
 `
 
 ```
 
-
-
-使用模板字符串表示多行字符串，所有的空格和缩进都会被保留在输出之中。
+反斜杠用来在文本字符串中插入省略号、换行符、引号和其他特殊字符。而使用模板字符串可以表示多行字符串，所有的空格和缩进都会被保留在输出之中。
 
 ##### 4. 解构赋值
 
-##### 5. 默认参数和剩余运算符
+ES6 允许按照一定模式，从**数组和对象**中提取值，对变量进行赋值，这就是解构赋值。
+
+（1）数组的解构
+
+```javascript
+// 基础类型解构
+let [a, b, c] = [1, 2, 3]
+console.log(a, b, c) // 1, 2, 3
+
+// 对象数组解构
+let [a, b, c] = [{name: '1'}, {name: '2'}, {name: '3'}]
+console.log(a, b, c) // {name: '1'}, {name: '2'}, {name: '3'}
+
+// ...解构
+let [head, ...tail] = [1, 2, 3, 4]
+console.log(head, tail) // 1, [2, 3, 4]
+
+// 嵌套解构
+let [a, [b], d] = [1, [2, 3], 4]
+console.log(a, b, d) // 1, 2, 4
+
+// 解构不成功为undefined
+let [a, b, c] = [1]
+console.log(a, b, c) // 1, undefined, undefined
+
+// 解构前默认赋值
+let [a = 1, b = 2] = [3]
+console.log(a, b) // 3, 2
+
+```
+
+（2）对象的解构
+
+对象的解构与数组有一个重要的不同。数组的元素是按次序排列的，变量的取值由它的位置决定；
+
+**而对象的属性没有次序，变量必须与属性同名，才能取到正确的值。**
+
+```javascript
+// 对象属性解构
+let { f1, f2 } = { f1: 'test1', f2: 'test2' }
+console.log(f1, f2) // test1, test2
+
+// 可以不按照顺序，这是数组解构和对象解构的重要区别之一
+let { f2, f1 } = { f1: 'test1', f2: 'test2' }
+console.log(f1, f2) // test1, test2
+
+// 解构对象可以重命名
+let { f1: rename, f2 } = { f1: 'test1', f2: 'test2' }
+console.log(rename, f2) // test1, test2
+
+// 嵌套解构
+let { f1: {f11}} = { f1: { f11: 'test11', f12: 'test12' } }
+console.log(f11) // test11
+
+// 解构对象可以定义默认值
+let { f1 = 'test1', f2: rename = 'test2' } = { f1: 'current1', f2: 'current2'}
+console.log(f1, rename) // current1, current2
+```
+
+（3）将解构放进函数参数中
+
+```javascript
+function func1({ x, y }) {
+    return x + y
+}
+func1({ x: 1, y: 2}) // 3
+
+function func1({ x = 1, y = 2 }) {
+    return x + y
+}
+func1({x: 4}) // 6
+```
+
+
+
+##### 5. 函数默认参数和剩余参数
+
+（1）默认参数
+
+ES6 允许为函数的参数设置默认值，即直接写在参数定义的后面。
+
+```javascript
+function demo(x, y = 7) {
+    return x + y
+}
+
+demo(3) // 10
+demo(3, 9) // 12
+```
+
+（2）剩余参数
+
+ES6 引入 rest 参数（形式为`...变量名`），用于获取函数的多余参数，rest 参数搭配的变量是一个数组，该变量将多余的参数放入数组中。你可以简单理解为，**将一个数组类型的变量作为函数的参数。**
+
+```javascript
+function add(title, ...values) {
+    let sum = 0;
+    for (var val of values) {
+        sum += val;
+    }
+    return title + sum;
+}
+
+add('结果为：', 2, 5, 3) // 结果为：10  ...自动将剩余参数转为数据组
+
+add('结果为：', [2, 5, 3]) // 在没有三个点的情况下你就得传数组
+```
+
+剩余参数可以完美而优雅的替代传统的arguments对象：
+
+```javascript
+function sortNum() {
+    return Array.prototype.slice.call(arguments).sort()
+}
+
+const sortNum = (...num) => {
+    return num.sort()
+}
+```
+
+伪数组arguments除了length属性和索引元素之外没有任何Array属性和方法。要使用数组方法必须先转为数组。
+
+而**剩余参数所代表的数组就是一个真正的数组**，数组特有的方法都可以使用。
+
+另外，要注意：rest 参数之后不能再有其他参数（即**只能是最后一个参数**），否则会报错。
 
 ##### 6. 简写对象属性/方法
 
+对象中属性重名时：
+
+```javascript
+function people(name, age) {
+    return {
+        name: name,
+        age: age
+    };
+}
+
+function people(name, age) {
+    return {
+        name,
+        age
+    };
+}
+```
+
+对象中方法函数简写：
+
+```javascript
+const people = {
+    name: 'lux',
+    age: 32,
+    getName: function() {
+        console.log(this.name)
+    }
+    getAge () {
+        console.log(this.age)
+    }
+}
+```
+
 ##### 7. Promise
 
-##### 8. Module
+
+
+##### 8. 模块化
+
+模块功能主要由两个命令构成：`export`和`import`。`export`导出当前模块下其它模块中可能需要使用的功能，`import`导入其它模块暴露且当前模块需要使用的功能。
+
+一个模块就是一个独立的文件。
+
+```javascript
+--- out.js
+
+// 部分导出
+export let a = 'something'
+export function fn() {
+    console.log('something')
+}
+// 建议：使用最后打包导出前面声明的变量或函数的方式而不是每一个都加上export
+export {a,b,c...}
+
+--- in.js
+
+// 部分导入：必须使用花括号
+import {a,fn} from './out.js'
+// 全部导入
+import * as all from './out.js'
+all.fn()
+console.log(all.a)
+```
+
+`import`命令输入的变量都是只读的，因为它的本质是输入接口。也就是说，不允许在加载模块的脚本里面，改写接口。建议凡是输入的变量，都当作完全只读，轻易不要改变它的属性。
+
+```javascript
+// 导出默认, 有且只有一个默认,不能使用花括号，导出匿名的接口
+export default App
+// 导入默认，没有花括号
+import App from './out.js'
+```
+
+`export default`命令用于指定模块的默认输出。显然，一个模块只能有一个默认输出，因此`export default`命令只能使用一次。所以，import命令后面才不用加大括号，因为只可能唯一对应`export default`命令。
+
+牢记：
+
+1. 当用export default people导出时，就用 import people 导入（不带大括号）
+2. 一个文件里，有且只能有一个export default。但可以有多个export。
+3. 当用export name 时，就用import { name }导入（记得带上大括号）
+4. 当一个文件里，既有一个export default people, 又有多个export name 或者 export
+   age时，导入就用 import people, { name, age }
+5. 当一个文件里出现n多个 export 导出很多模块，导入时除了一个一个导入，也可以用import * as example
 
 [掘金一万字的 ES6 语法](https://juejin.im/post/5c6234f16fb9a049a81fcca5)
 
